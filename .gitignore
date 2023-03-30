@@ -10,3 +10,7 @@
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+# Make sure I don't accidentally paste my personal data
+*.csv
+*.json
