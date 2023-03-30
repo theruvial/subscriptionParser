@@ -58,9 +58,13 @@ def parseSubs():
                 f"Unable to parse {endIndex - startIndex} URLs, was only able to parse {i - startIndex} URLs")
             break
     clipboardString = '\n'.join(urlList)
-    # print(clipboardString)
-    pyperclip.copy(clipboardString)
-    pyperclip.paste()
-    print(f"Successfully copied {i-startIndex} URLs to clipboard!")
+        
+    try:        
+        pyperclip.copy(clipboardString)
+        pyperclip.paste()
+        print(f"Successfully copied {i-startIndex} URLs to clipboard!")
+    except(pyperclip.PyperclipException):        
+        print(clipboardString)
+        print(f"Pyperclip was unable to find a copy/paste mechanism on your system so you'll have to manually copy/paste the data into the extension")
 
 parseSubs()
